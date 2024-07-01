@@ -1,7 +1,7 @@
 package com.rami.match.user;
-/*
-import com.rami.match.match.match;
-import com.rami.match.history.BookTransactionHistory;*/
+
+import com.rami.match.match.Match;
+
 import com.rami.match.role.Role;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -56,10 +56,8 @@ public class User implements UserDetails, Principal {
     private boolean enabled;
     @ManyToMany(fetch = EAGER)
     private List<Role> roles;
-    /*@OneToMany(mappedBy = "owner")
-    private List<Book> books;
-    @OneToMany(mappedBy = "user")
-    private List<BookTransactionHistory> histories;*/
+    @OneToMany(mappedBy = "owner")
+    private List<Match> matches;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
